@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MyToDo With SQLite</string>
+
+    <!--registration-->
+    <string name="hint_name">Username</string>
+    <string name="hint_pass">Password</string>
+    <string name="hint_email">Email</string>
+    <string name="register_txt">No account yet? Create one</string>
+    <string name="registration_text">REGISTER</string>
+    <!--Login-->
+    <string name="login_text">LOGIN</string>
+    <string name="already_login_txt">Already a member? Login</string>
+    <!--error message-->
+    <string name="error_message_name">Please enter valid name</string>
+    <string name="error_message_email">Please enter valid email</string>
+    <string name="error_message_password">Please enter valid password</string>
+    <string name="error_email_exists">User may already exist</string>
+    <!--success message-->
+    <string name="success_message">You are successfully logged in</string>
+    <string name="login_success_message">User logged successfully</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+</resources>
