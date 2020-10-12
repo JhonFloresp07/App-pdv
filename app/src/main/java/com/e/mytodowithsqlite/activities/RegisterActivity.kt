@@ -16,7 +16,9 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class RegisterActivity : AppCompatActivity() {
 
-    lateinit var usersDBHelper: DBHelper
+    companion object{
+        lateinit var usersDBHelper: DBHelper
+    }
 
     private lateinit var textInputLayoutName: TextInputLayout
     private lateinit var textInputLayoutEmail: TextInputLayout
@@ -86,7 +88,7 @@ class RegisterActivity : AppCompatActivity() {
             return
         }
         if (!usersDBHelper.checkUser(textInputEditTextEmail.text.toString().trim())) {
-            var result = usersDBHelper.insertUser(
+            usersDBHelper.insertUser(
                 UserModel(
                     name = textInputEditTextName.text.toString().trim(),
                     email = textInputEditTextEmail.text.toString().trim(),
@@ -115,18 +117,7 @@ class RegisterActivity : AppCompatActivity() {
         this.ll_entries.removeAllViews()
     }
 
-    fun showAllUsers() {
-        val users = usersDBHelper.getAllUser()
-        this.ll_entries.removeAllViews()
-        users.forEach {
-            var tv_user = TextView(this)
-            tv_user.textSize = 30F
-            tv_user.text =
-                it.userid.toString() + " " + it.name.toString() + "  " + it.email.toString()
-            this.ll_entries.addView(tv_user)
-        }
-        this.textview_result.text = "Fetched " + users.size + " users"
-    }
+
 
     fun openLogin(v: View) {
         val intent = Intent(this, LoginActivity::class.java)

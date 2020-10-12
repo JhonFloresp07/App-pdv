@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteConstraintException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import com.e.mytodowithsqlite.model.UserModel
 
 class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -40,7 +41,22 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         return true
     }
 
-    @Throws(SQLiteConstraintException::class)
+    fun deleteUser(userid: String): Boolean{
+        val qry = "Delete From $TABLE_NAME where $USER_ID = $userid"
+        val db: SQLiteDatabase = this.writableDatabase
+        var result: Boolean = false
+        try {
+            //val cursor:Int = db.delete(CUSTOMERS_TABEL_NAME, "$COLUMN_CUSTOMERID= ?", arrayOf(customerID.toString()))
+            val cursor = db.execSQL(qry)
+            result = true
+        }catch (e: Exception){
+            Log.e(ContentValues.TAG, "Error Deleting")
+        }
+        db.close()
+        return result
+    }
+
+   /* @Throws(SQLiteConstraintException::class)
     fun deleteUser(userid: String): Boolean {
 // Gets the data repository in write mode
         val db = writableDatabase
@@ -50,8 +66,27 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         val selectionArgs = arrayOf(userid)
 // Issue SQL statement.
         db.delete(TABLE_NAME, selection, selectionArgs)
+        db.close()
         return true
+    }*/
+
+    fun updateUser(id: String, userName: String, userEmail: String, userPassword: String): Boolean{
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        var result: Boolean
+        contentValues.put(USER_NAME, userName)
+        contentValues.put(USER_EMAIL, userEmail)
+        contentValues.put(USER_PASS, userPassword)
+        try {
+            db.update(TABLE_NAME, contentValues, "$USER_ID = ?", arrayOf(id))
+            result = true
+        }catch (e: Exception){
+            Log.e(ContentValues.TAG, "Error Updating")
+            result = false
+        }
+        return result
     }
+
     /**
      * This method to check user exist or not
      *

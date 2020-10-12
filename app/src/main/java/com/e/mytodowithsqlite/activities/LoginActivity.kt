@@ -59,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         if (databaseHelper.checkUser(textInputEditTextEmail.text.toString().trim())) {
-            Toast.makeText(this, getString(R.string.success_message), Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.login_success_message), Toast.LENGTH_LONG).show()
             //textViewName.getUserId = databaseHelper.getUserIdByEmail(textInputEditTextEmail.text.toString())
             val accountsIntent = Intent(this, UsersListActivity::class.java)
             startActivity(accountsIntent)
