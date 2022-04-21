@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "MyToDo With SQLite"
+rootProject.name = "MyApp"

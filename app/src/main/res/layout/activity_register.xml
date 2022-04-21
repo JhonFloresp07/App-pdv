@@ -3,25 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
    >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.55"
-        android:gravity="center"
-        android:background="@color/df_danger">
-        <ImageView
-            android:id="@+id/imgKotlin"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:src="@drawable/kotlin"
-            android:layout_centerInParent="true" />
-
-    </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -32,11 +16,34 @@
         android:layout_margin="10dp">
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:layout_weight="1"
+                    android:textSize="50dp"
+                    android:text="Registro" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Completa los datos del formulario" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayoutName"
@@ -50,11 +57,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="start"
-                    android:hint="@string/hint_name"
-                    android:textColorHint="@android:color/black"
+                    android:hint="@string/name"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -69,11 +76,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="start"
-                    android:textColorHint="@android:color/white"
                     android:hint="@string/hint_email"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -95,17 +102,24 @@
                     android:textColor="@android:color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="142dp"
             android:orientation="horizontal">
+
             <Button
                 android:id="@+id/button_add_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginRight="100dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/df_danger"
                 android:onClick="addUser"
-                android:text="@string/registration_text"/>
+                android:text="REGISTRARSE" />
+
             <Button
                 android:id="@+id/button_delete_user"
                 android:layout_width="wrap_content"
@@ -113,7 +127,8 @@
                 android:layout_weight="1"
                 android:onClick="deleteUser"
                 android:text="Delete"
-                android:visibility="gone"/>
+                android:visibility="gone" />
+
             <Button
                 android:id="@+id/button_show_all"
                 android:layout_width="wrap_content"
@@ -121,18 +136,30 @@
                 android:layout_weight="1"
                 android:onClick="showAllUsers"
                 android:text="Show All"
-                android:visibility="gone"/>
+                android:visibility="gone" />
         </LinearLayout>
+
         <TextView
             android:id="@+id/textview_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/imageview_go_to_login"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="180dp"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+
+
         <TextView
-            android:gravity="center"
             android:id="@+id/txtLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/already_login_txt"
-            android:onClick="openLogin"/>
+            android:gravity="center"
+            android:onClick="openLogin"
+            android:text="Volver al login" />
     </LinearLayout>
 </LinearLayout>

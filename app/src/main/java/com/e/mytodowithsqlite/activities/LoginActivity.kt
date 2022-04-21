@@ -1,5 +1,6 @@
 package com.e.mytodowithsqlite.activities
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -59,31 +60,30 @@ class LoginActivity : AppCompatActivity() {
         }
 
         if (databaseHelper.checkUser(textInputEditTextEmail.text.toString().trim())) {
-            Toast.makeText(this, getString(R.string.login_success_message), Toast.LENGTH_LONG).show()
-            //textViewName.getUserId = databaseHelper.getUserIdByEmail(textInputEditTextEmail.text.toString())
-            val accountsIntent = Intent(this, UsersListActivity::class.java)
-            startActivity(accountsIntent)
-            finish()
-        } else {
-            Toast.makeText(this, "not exist", Toast.LENGTH_LONG).show()
+            if(databaseHelper.checkUser(textInputEditTextPassword.text.toString().trim())){
+                Toast.makeText(this, getString(R.string.login_success_message), Toast.LENGTH_LONG).show()
+                //textViewName.getUserId = databaseHelper.getUserIdByEmail(textInputEditTextEmail.text.toString())
+                val accountsIntent = Intent(this, FragmentHome::class.java)
+                startActivity(accountsIntent)
+                finish()
+            }
+            } else {
+                Toast.makeText(this, "not exist", Toast.LENGTH_LONG).show()
+            }
         }
 
-    }
+        fun openRegister(v: View) {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
-    fun openRegister(v: View) {
-        val intent = Intent(this, RegisterActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
-
-    private fun initObjects() {
-        inputValidation = InputValidation(this)
-        databaseHelper = DBHelper(this)
-        textInputLayoutEmail = findViewById<TextInputLayout>(R.id.textInputLayoutEmail)
-        textInputLayoutPassword = findViewById<TextInputLayout>(R.id.textInputLayoutPassword)
-        textInputEditTextEmail = findViewById<TextInputEditText>(R.id.textInputEditTextEmail)
-        textInputEditTextPassword = findViewById<TextInputEditText>(R.id.textInputEditTextPassword)
-
-    }
-
+        private fun initObjects() {
+            inputValidation = InputValidation(this)
+            databaseHelper = DBHelper(this)
+            textInputLayoutEmail = findViewById<TextInputLayout>(R.id.textInputLayoutEmail)
+            textInputLayoutPassword = findViewById<TextInputLayout>(R.id.textInputLayoutPassword)
+            textInputEditTextEmail = findViewById<TextInputEditText>(R.id.textInputEditTextEmail)
+            textInputEditTextPassword = findViewById<TextInputEditText>(R.id.textInputEditTextPassword)
+        }
 }

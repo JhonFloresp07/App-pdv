@@ -1,24 +1,29 @@
 <resources>
-    <string name="app_name">MyToDo With SQLite</string>
+    <string name="app_name">My App</string>
 
     <!--registration-->
-    <string name="hint_name">Username</string>
+    <string name="hint_name">Nombre</string>
     <string name="hint_pass">Password</string>
-    <string name="hint_email">Email</string>
-    <string name="register_txt">No account yet? Create one</string>
-    <string name="registration_text">REGISTER</string>
+    <string name="hint_email">Usuario</string>
+    <string name="register_txt">Registrate aquí</string>
+    <string name="registration_text">Registrarse</string>
     <!--Login-->
-    <string name="login_text">LOGIN</string>
-    <string name="already_login_txt">Already a member? Login</string>
+    <string name="login_text">INGRESAR</string>
+    <string name="already_login_txt">Volver al login</string>
     <!--error message-->
-    <string name="error_message_name">Please enter valid name</string>
-    <string name="error_message_email">Please enter valid email</string>
-    <string name="error_message_password">Please enter valid password</string>
-    <string name="error_email_exists">User may already exist</string>
+    <string name="error_message_name">Ingrese nombre</string>
+    <string name="error_message_email">Ingrese email</string>
+    <string name="error_message_password">Ingrese contraseña</string>
+    <string name="error_email_exists">La usuario ya puede existir</string>
     <!--success message-->
-    <string name="success_message">You are successfully registered</string>
-    <string name="login_success_message">User logged successfully</string>
+    <string name="success_message">Estás registrado correctamente</string>
+    <string name="login_success_message">Estás logeado correctamente</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="open_drawer">Open</string>
+    <string name="close_drawer">Close</string>
 </resources>
